@@ -1,0 +1,70 @@
+<div class="header" style="background: lightskyblue; height: 100px">
+<br>
+<center><h1> Usuarios</h1></center>
+</div>
+<center>
+<% unless @usuarios.blank? %>
+
+<br>
+  <table class="table table-condensed" style="width: 500px; border-collapse: collapse;
+      border-radius: 1em; background: white; border: 1px silver solid;">
+    <thead>
+    <tr style="border-bottom: black">
+
+      <th scope="col">id</th>
+      <th scope="col">usuario</th>
+      <th scope="col">e-mail</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% #Aqui se presentan los elementos dentro de la base de datos en una tabla %>
+    <% @usuarios.each do |usr| %>
+      <%# @autos.order do |auto| %>
+
+      <tr style="border-bottom: black">
+
+        <td><%= usr.id %></td>
+        <td><%= usr.usrname %></td>
+        <td><%= usr.email %></td>
+        <td>
+          <% #aqui se realiza el enlace al index principal de auto %>
+          <%= link_to usr do  %>
+            <% #muestra el icono de vista %>
+            <%= fa_icon 'eye'%>
+
+          <% end %>
+        </td>
+        <td>
+          <% #aqui se realiza el enlace a la edición de información %>
+          <%= link_to edit_usuario_path(usr) do  %>
+
+            <%= fa_icon 'pencil'%>
+
+          <% end %>
+        </td>
+        <td><%= link_to usr , method: :delete, data:{confirm: 'Estás seguro'} do %>
+            <%= fa_icon 'trash'%>
+          <% end%>
+        </td>
+
+      </tr>
+    <%end %>
+
+    </tbody>
+  </table>
+<div><%= link_to 'nuevo' , new_usuario_path, :class => "btn btn-default" %></div>
+
+</center>
+</center>
+
+<% else  %>
+    <br>
+    <div><%= link_to 'nuevo' , new_usuario_path, :class => "btn btn-default" %></div>
+
+<center><h2>No existen datos</h2></center>
+
+
+<% end %>

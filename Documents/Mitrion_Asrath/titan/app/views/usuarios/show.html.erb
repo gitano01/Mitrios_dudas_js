@@ -1,0 +1,36 @@
+<%# # Este documento muestra la información especifica de un elemento al clickear fa-icon 'eye' en el index %>
+<div class="header" style="background: peachpuff; height: 100px">
+  <br>
+  <center><h1> Usuario</h1></center>
+</div>
+<article>
+
+<br>
+  <center>
+  <table class="table table-condensed" style="width: 500px; border-collapse: collapse;
+      border-radius: 1em; background: white; border: 1px silver solid;">
+    <tbody>
+    <tr>
+      <th> Nombre de usuario: </th>
+      <td><%= @usuario.usrname %></td>
+    </tr>
+    <tr>
+      <th> E-mail: </th>
+      <td><%= @usuario.email %></td>
+    </tr>
+
+
+    </tbody>
+  </table>
+  </center>
+
+
+
+  <div class = "row">
+    <div class="col-md-6"><center>
+      <%= link_to 'atrás', usuarios_path, :class => "btn btn-default", :style =>'background: purple; color: white' %>
+    </center>
+    </div>
+  </div>
+
+</article>

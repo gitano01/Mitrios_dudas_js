@@ -1,0 +1,61 @@
+<div class="header" style="background: darkseagreen; height: 100px">
+  <br>
+  <center><h1><%= name %></h1></center>
+</div>
+<center>
+<br>
+
+<%= form_for(@usuario)  do |f| %>
+
+  <table class="table" style="width: 500px;
+      border-radius: 1em; background: white; border: 1px silver solid;">
+
+    <tr >
+      <td  >
+        <%= f.label :usrname ,'Nombre de usuario', :class => 'form-group'%>
+      </td>
+      <td  >
+        <%= f.text_field :usrname , placeholder:'Ej:Lobus', :required => true,:class => 'form-control'%>
+      </td>
+    </tr>
+    <tr>
+      <td >
+        <%= f.label :email ,'Email', :class => 'form-group'%>
+      </td>
+      <td  >
+        <%= f.text_field :email , placeholder:'Ej: elgansitofeliz@h.com',:required => true,:class => 'form-control'%>
+      </td>
+    </tr>
+    <tr >
+      <td  >
+        <%= f.label :password, 'Contraseña', :class => 'form-group'%>
+      </td>
+      <td >
+        <%= f.password_field :password , id:'password' ,placeholder:'contraseña',:required => true, :class => 'form-control'%>
+
+      </td>
+    </tr>
+    <tr >
+      <td >
+        <%#= f.label :password_conf ,''%>
+      </td>
+      <td  >
+        <%= f.password_field :password_confirmation,id:'password_confirmation' , placeholder:'confirmar contraseña',:required => true,:class => 'form-control'%>
+      </td>
+    </tr>
+
+
+
+
+
+
+  </table>
+  <div class="row">
+    <%= f.submit  boton , :class  => 'btn btn-success'  %>
+  </div>
+
+  </center>
+
+
+<%end%>
+
